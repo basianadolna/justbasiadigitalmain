@@ -35,6 +35,9 @@ export default async function Approach() {
       <section className="approach-hero" aria-labelledby="page-title">
         <div className="circle hide-sm" style={{ right: 80, top: 30, width: 360, height: 360, background: "var(--blush)" }}></div>
         <div className="circle hide-sm" style={{ right: 360, top: 280, width: 110, height: 110, background: "var(--lime)" }}></div>
+        <svg className="deco hide-sm" aria-hidden="true" width="200" height="80" viewBox="0 0 200 80" style={{ right: 150, top: 150 }} fill="none" stroke="#6C3FD8" strokeWidth="9" strokeLinecap="round">
+          <path d="M10 56 C 30 18, 60 16, 68 42 C 76 68, 40 68, 48 44 C 56 20, 120 14, 190 50" />
+        </svg>
         <div className="wrap">
           <div className="inner">
             <span className="eyebrow eyebrow-hero">{approach.hero.eyebrow}</span>
@@ -78,6 +81,9 @@ export default async function Approach() {
       </section>
 
       <section className="truths" aria-labelledby="truths-title">
+        <svg className="deco hide-sm" aria-hidden="true" width="150" height="50" viewBox="0 0 150 50" style={{ right: 90, top: 60 }} fill="none" stroke="#BFE3CB" strokeWidth="8" strokeLinecap="round">
+          <path d="M8 30 C 28 5, 48 50, 72 26 S 115 5, 140 26" />
+        </svg>
         <div className="wrap">
           <h2 id="truths-title" className="h2" style={{ color: "var(--cream)" }}>
             {approach.truths.title}

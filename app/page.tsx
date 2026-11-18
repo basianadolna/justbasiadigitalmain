@@ -122,6 +122,9 @@ export default async function Home() {
               <span>{home.hero.stickerALabel}</span>
             </div>
             <div className="sticker stat-b">{home.hero.stickerB}</div>
+            <svg className="deco" aria-hidden="true" viewBox="0 0 140 70" style={{ right: "6%", top: 0, width: "25%" }} fill="none" stroke="#6C3FD8" strokeWidth="8" strokeLinecap="round">
+              <path d="M6 44 C 24 14, 46 14, 52 34 C 58 56, 30 58, 36 36 C 42 14, 90 10, 134 40" />
+            </svg>
           </div>
         </div>
       </section>
@@ -158,6 +161,9 @@ export default async function Home() {
             </a>
           </div>
           <div className="dots">
+            <svg className="dots-line" aria-hidden="true" viewBox="0 0 1280 130" preserveAspectRatio="none" fill="none" stroke="#2D2D2D" strokeWidth="4" strokeLinecap="round" strokeDasharray="1 14">
+              <path d="M151 65 C 250 -15, 380 145, 477 65 S 700 -15, 803 65 S 1030 145, 1129 65" />
+            </svg>
             <ol className="dots-row" style={{ listStyle: "none", margin: 0, padding: 0 }}>
               {home.dots.map((d, i) => (
                 <li className="dot-item" key={d.num}>
@@ -177,6 +183,9 @@ export default async function Home() {
 
       <section id="services" className="section band-white" aria-labelledby="services-title">
         <div className="circle hide-sm" style={{ left: -60, bottom: -60, width: 180, height: 180, background: "var(--peach)" }}></div>
+        <svg className="deco hide-sm" aria-hidden="true" width="160" height="60" viewBox="0 0 160 60" style={{ right: 120, top: 70 }} fill="none" stroke="#4A90E2" strokeWidth="8" strokeLinecap="round">
+          <path d="M8 34 C 26 10, 46 56, 68 32 S 108 8, 130 30 S 150 44, 154 36" />
+        </svg>
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow" style={{ background: "var(--yellow)" }}>{home.servicesHead.eyebrow}</span>
@@ -228,6 +237,9 @@ export default async function Home() {
       </section>
 
       <section id="faq" className="section band-lavender faq" aria-labelledby="faq-title">
+        <svg className="deco hide-sm" aria-hidden="true" width="170" height="80" viewBox="0 0 170 80" style={{ left: 70, bottom: 90 }} fill="none" stroke="#F062A8" strokeWidth="8" strokeLinecap="round">
+          <path d="M8 56 C 28 20, 56 18, 62 42 C 68 66, 36 66, 44 44 C 52 22, 110 16, 162 50" />
+        </svg>
         <div className="wrap">
           <div className="faq-side">
             <span className="eyebrow" style={{ background: "#fff" }}>{home.faqHead.eyebrow}</span>
@@ -256,6 +268,9 @@ export default async function Home() {
       </section>
 
       <section id="notes" className="section band-line notes" aria-labelledby="notes-title">
+        <svg className="deco hide-sm" aria-hidden="true" width="150" height="50" viewBox="0 0 150 50" style={{ left: 80, bottom: 60 }} fill="none" stroke="#F2D160" strokeWidth="8" strokeLinecap="round">
+          <path d="M8 30 C 28 5, 48 50, 72 26 S 115 5, 140 26" />
+        </svg>
         <div className="wrap">
           <div className="notes-copy">
             <span className="eyebrow" style={{ background: "var(--lime)" }}>{home.notes.eyebrow}</span>
@@ -278,6 +293,12 @@ export default async function Home() {
 
       <section id="contact" className="contact" aria-labelledby="contact-title">
         <div className="circle" style={{ right: -60, top: -60, width: 200, height: 200, background: "var(--mint)" }}></div>
+        <svg className="deco hide-sm" aria-hidden="true" width="220" height="90" viewBox="0 0 220 90" style={{ left: 60, top: 50 }} fill="none" stroke="#F2D160" strokeWidth="9" strokeLinecap="round">
+          <path d="M10 60 C 34 18, 66 16, 74 44 C 82 72, 44 72, 54 46 C 64 20, 140 14, 210 56" />
+        </svg>
+        <svg className="deco hide-sm" aria-hidden="true" width="180" height="60" viewBox="0 0 180 60" style={{ right: 80, bottom: 60 }} fill="none" stroke="#F062A8" strokeWidth="9" strokeLinecap="round">
+          <path d="M8 34 C 28 8, 50 58, 74 32 S 118 8, 140 32 S 166 46, 172 36" />
+        </svg>
         <div className="wrap">
           <h2 id="contact-title">
             {home.contact.title}
