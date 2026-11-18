@@ -1,7 +1,7 @@
 "use client";
 
 import { defineConfig } from "sanity";
-import { presentationTool } from "sanity/presentation";
+import { defineLocations, presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
 import { schemaTypes, singletonTypes } from "./sanity/schemas";
 
@@ -21,6 +21,63 @@ export default defineConfig({
   projectId,
   dataset,
   basePath: "/studio",
+  resolve: {
+    // Map documents to the site pages where they render, so Presentation's
+    // "Documents on this page" panel links sections to the right editor.
+    locations: {
+      siteSettings: defineLocations({
+        select: { title: "siteName" },
+        resolve: () => ({
+          locations: [
+            { title: "Home", href: "/" },
+            { title: "Approach", href: "/approach" },
+            { title: "Privacy", href: "/privacy" },
+          ],
+        }),
+      }),
+      homePage: defineLocations({
+        select: { title: "heroTitlePre" },
+        resolve: () => ({ locations: [{ title: "Home", href: "/" }] }),
+      }),
+      approachPage: defineLocations({
+        select: { title: "seoOgTitle" },
+        resolve: () => ({ locations: [{ title: "Approach", href: "/approach" }] }),
+      }),
+      privacyPage: defineLocations({
+        select: { title: "title" },
+        resolve: () => ({ locations: [{ title: "Privacy", href: "/privacy" }] }),
+      }),
+      service: defineLocations({
+        select: { title: "title" },
+        resolve: () => ({ locations: [{ title: "Home", href: "/" }] }),
+      }),
+      frameworkStep: defineLocations({
+        select: { title: "title" },
+        resolve: () => ({
+          locations: [
+            { title: "Home", href: "/" },
+            { title: "Approach", href: "/approach" },
+          ],
+        }),
+      }),
+      proofStat: defineLocations({
+        select: { title: "value" },
+        resolve: () => ({ locations: [{ title: "Home", href: "/" }] }),
+      }),
+      platform: defineLocations({
+        select: { title: "name" },
+        resolve: () => ({ locations: [{ title: "Home", href: "/" }] }),
+      }),
+      faq: defineLocations({
+        select: { title: "question" },
+        resolve: () => ({ locations: [{ title: "Home", href: "/" }] }),
+      }),
+      truth: defineLocations({
+        select: { title: "title" },
+        resolve: () => ({ locations: [{ title: "Approach", href: "/approach" }] }),
+      }),
+    },
+  },
   plugins: [
     presentationTool({
       previewUrl: {

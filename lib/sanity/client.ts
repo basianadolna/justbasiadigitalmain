@@ -25,6 +25,7 @@ export function getPreviewClient() {
     token,
     perspective: "drafts",
     stega: {
+      enabled: true,
       studioUrl:
         process.env.SANITY_STUDIO_URL ||
         "https://justbasiadigitalmain.vercel.app/studio",
