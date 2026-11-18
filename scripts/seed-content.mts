@@ -54,6 +54,8 @@ const docs: Record<string, unknown>[] = [
     footerPainterHandle: s.footerPainterHandle,
     footerNav: keyed(s.footerNav),
     copyright: s.copyright,
+    gtmContainerId: "",
+    gtmEnabled: false,
     llmsSummary: s.llmsSummary,
     llmsKnownAs: s.llmsKnownAs,
     llmsHomeDesc: s.llmsHomeDesc,
