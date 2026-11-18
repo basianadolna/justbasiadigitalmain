@@ -116,6 +116,10 @@ export default async function Home() {
             <div className="circle" style={{ right: 0, bottom: "6%", width: "27%", aspectRatio: "1", height: "auto", background: "var(--lime)" }}></div>
             <div className="circle" style={{ left: "2%", top: "4%", width: "14%", aspectRatio: "1", height: "auto", background: "var(--mint)" }}></div>
             { }
+            {/* Preload the LCP portrait so it fetches at top priority instead
+                of queueing behind the font preloads; AVIF-only preload, webp
+                remains the fallback for older engines. */}
+            <link rel="preload" href="/assets/basia-avatar.avif" as="image" type="image/avif" fetchPriority="high" />
             <picture>
               <source srcSet="/assets/basia-avatar.avif" type="image/avif" />
               <img className="portrait" src="/assets/basia-avatar.webp" width="640" height="640" alt={home.hero.portraitAlt} fetchPriority="high" />
