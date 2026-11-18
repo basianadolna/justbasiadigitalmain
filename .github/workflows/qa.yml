@@ -1,0 +1,23 @@
+name: QA
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck && npm run lint && npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm test
+      - run: npx lhci autorun
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: screenshots-and-reports
+          path: |
+            test-results
+            .lighthouseci
