@@ -1,6 +1,7 @@
 "use client";
 
 import { defineConfig } from "sanity";
+import { presentationTool } from "sanity/presentation";
 import { structureTool } from "sanity/structure";
 import { schemaTypes, singletonTypes } from "./sanity/schemas";
 
@@ -21,6 +22,14 @@ export default defineConfig({
   dataset,
   basePath: "/studio",
   plugins: [
+    presentationTool({
+      previewUrl: {
+        origin:
+          process.env.SANITY_STUDIO_PREVIEW_ORIGIN ||
+          "https://justbasiadigitalmain.vercel.app",
+        previewMode: { enable: "/api/draft-mode/enable" },
+      },
+    }),
     structureTool({
       structure: (S) =>
         S.list()
