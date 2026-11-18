@@ -8,9 +8,14 @@ export const sanityConfigured = Boolean(projectId);
 
 const shared = { projectId, dataset, apiVersion } as const;
 
-// Public, published-content client. Safe for the browser bundle (no token).
+// Public, published-content client, used server-side only (see data.ts).
+// useCdn is false on purpose: Next.js already caches these fetches by tag
+// ("jbd-content") and the webhook revalidates that tag on publish. Reading
+// through Sanity's CDN on top would serve stale documents to the re-render
+// that the webhook just triggered (observed: GTM toggle invisible until a
+// second mutation re-fired revalidation).
 export const sanityClient = projectId
-  ? createClient({ ...shared, useCdn: true, perspective: "published" })
+  ? createClient({ ...shared, useCdn: false, perspective: "published" })
   : null;
 
 // Server-only client for draft preview reads.

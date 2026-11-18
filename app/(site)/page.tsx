@@ -115,8 +115,11 @@ export default async function Home() {
             <div className="circle" style={{ left: "6%", top: "10%", width: "86%", aspectRatio: "1", height: "auto", background: "var(--blush)" }}></div>
             <div className="circle" style={{ right: 0, bottom: "6%", width: "27%", aspectRatio: "1", height: "auto", background: "var(--lime)" }}></div>
             <div className="circle" style={{ left: "2%", top: "4%", width: "14%", aspectRatio: "1", height: "auto", background: "var(--mint)" }}></div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="portrait" src="/assets/basia-avatar.webp" width="640" height="640" alt={home.hero.portraitAlt} fetchPriority="high" />
+            { }
+            <picture>
+              <source srcSet="/assets/basia-avatar.avif" type="image/avif" />
+              <img className="portrait" src="/assets/basia-avatar.webp" width="640" height="640" alt={home.hero.portraitAlt} fetchPriority="high" />
+            </picture>
             <div className="sticker stat-a">
               <b>{home.hero.stickerAValue}</b>
               <span>{home.hero.stickerALabel}</span>

@@ -83,7 +83,7 @@ export default defineConfig({
       previewUrl: {
         origin:
           process.env.SANITY_STUDIO_PREVIEW_ORIGIN ||
-          "https://justbasiadigitalmain.vercel.app",
+          "https://www.justbasiadigital.com",
         previewMode: { enable: "/api/draft-mode/enable" },
       },
     }),

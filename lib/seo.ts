@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { getSite } from "./sanity/data";
 
-export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://justbasiadigital.com";
+export const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.justbasiadigital.com";
 
 export const allowIndexing = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 
