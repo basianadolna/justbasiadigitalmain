@@ -1,12 +1,6 @@
+@font-face{font-family:"DM Sans";font-style:normal;font-weight:400 800;font-display:swap;src:url(/assets/fonts/dm-sans-400-800-latin.woff2) format("woff2")}
+@font-face{font-family:"Playfair Display";font-style:normal;font-weight:800 900;font-display:swap;src:url(/assets/fonts/playfair-800-900-latin.woff2) format("woff2")}
 /* Just Basia Digital · brand system v2: cream, squiggles, sticker cards */
-@font-face{font-family:"Playfair Display";font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/playfair-display-latin-800-normal.woff2) format("woff2")}
-@font-face{font-family:"Playfair Display";font-style:normal;font-weight:900;font-display:swap;src:url(/assets/fonts/playfair-display-latin-900-normal.woff2) format("woff2")}
-@font-face{font-family:"Playfair Display";font-style:italic;font-weight:800;font-display:swap;src:url(/assets/fonts/playfair-display-latin-800-italic.woff2) format("woff2")}
-@font-face{font-family:"DM Sans";font-style:normal;font-weight:400;font-display:swap;src:url(/assets/fonts/dm-sans-latin-400-normal.woff2) format("woff2")}
-@font-face{font-family:"DM Sans";font-style:normal;font-weight:500;font-display:swap;src:url(/assets/fonts/dm-sans-latin-500-normal.woff2) format("woff2")}
-@font-face{font-family:"DM Sans";font-style:normal;font-weight:600;font-display:swap;src:url(/assets/fonts/dm-sans-latin-600-normal.woff2) format("woff2")}
-@font-face{font-family:"DM Sans";font-style:normal;font-weight:700;font-display:swap;src:url(/assets/fonts/dm-sans-latin-700-normal.woff2) format("woff2")}
-@font-face{font-family:"DM Sans";font-style:normal;font-weight:800;font-display:swap;src:url(/assets/fonts/dm-sans-latin-800-normal.woff2) format("woff2")}
 
 :root{
   --cream:#FAF5EE;--ink:#2D2D2D;--body:#4A4541;--body2:#3A3532;--muted:#5F5A55;
