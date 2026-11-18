@@ -1,4 +1,5 @@
-import { sanityClient } from "./client";
+import { draftMode } from "next/headers";
+import { sanityClient, getPreviewClient } from "./client";
 import {
   defaultContent,
   type SiteContent,
@@ -12,9 +13,16 @@ import {
 } from "../content";
 
 async function sanityFetch<T>(query: string): Promise<T | null> {
-  if (!sanityClient) return null;
+  // Draft Mode (Sanity Presentation / preview): read drafts server-side with
+  // the read token and skip the cache, so unpublished edits show only for the
+  // previewing editor. Everyone else gets cached published content.
+  const isPreview = (await draftMode()).isEnabled;
+  const client = isPreview ? getPreviewClient() : sanityClient;
+  if (!client) return null;
   try {
-    const result = await sanityClient.fetch<T>(query, {}, { next: { tags: ["jbd-content"] } });
+    const result = isPreview
+      ? await client.fetch<T>(query, {}, { cache: "no-store" })
+      : await client.fetch<T>(query, {}, { next: { tags: ["jbd-content"] } });
     return result ?? null;
   } catch {
     return null;
