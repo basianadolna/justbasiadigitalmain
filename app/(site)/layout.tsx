@@ -1,6 +1,7 @@
 import "@/app/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Gtm from "@/components/Gtm";
 import { getSite } from "@/lib/sanity/data";
 import { rootMetadata, viewport } from "@/lib/seo";
 
@@ -14,6 +15,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en">
       <body>
+        {site.gtmEnabled ? <Gtm containerId={site.gtmContainerId} /> : null}
         <a className="skip" href="#main">
           {site.skipLinkText}
         </a>

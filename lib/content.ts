@@ -17,6 +17,7 @@ export interface SiteContent {
     contactEmail: string; linkedinUrl: string; instagramUrl: string;
     footerBrandLine: string; footerPainterPrefix: string; footerPainterHandle: string;
     footerNav: LinkItem[]; copyright: string;
+    gtmContainerId: string; gtmEnabled: boolean;
     llmsSummary: string; llmsKnownAs: string; llmsHomeDesc: string; llmsApproachDesc: string; llmsServices: string[];
     seo: { title: string; description: string; ogTitle: string; ogDescription: string; ogImageAlt: string };
     notFound: { seoTitle: string; seoDescription: string; title: string; bodyPre: string; homeLinkLabel: string; bodyMid: string; frameworkLinkLabel: string };
@@ -100,6 +101,8 @@ export const defaultContent: SiteContent = {
       }
     ],
     "copyright": "© 2026 Just B Inc.",
+    "gtmContainerId": "",
+    "gtmEnabled": false,
     "llmsSummary": "Just Basia Digital is the growth marketing practice of Basia Barbara Nadolna, a Brooklyn, NYC growth marketer specializing in paid media and automation. She has managed more than $3M in working paid media spend across eight ad platforms (Meta, TikTok, YouTube, Pinterest, Google, Microsoft, StackAdapt, ChatGPT Ads) and created the Connect the Dots framework.",
     "llmsKnownAs": "Also known as: Basia Nadolna, Barbara Nadolna, Basia (Barbara) Nadolna.",
     "llmsHomeDesc": "who Basia is, proof, services and FAQ",

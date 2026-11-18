@@ -58,6 +58,8 @@ export async function getSite(): Promise<SiteContent["site"]> {
     footerPainterHandle: str(doc, "footerPainterHandle", d.footerPainterHandle),
     footerNav: links(doc, "footerNav", d.footerNav),
     copyright: str(doc, "copyright", d.copyright),
+    gtmContainerId: str(doc, "gtmContainerId", d.gtmContainerId),
+    gtmEnabled: typeof doc?.gtmEnabled === "boolean" ? doc.gtmEnabled : d.gtmEnabled,
     llmsSummary: str(doc, "llmsSummary", d.llmsSummary),
     llmsKnownAs: str(doc, "llmsKnownAs", d.llmsKnownAs),
     llmsHomeDesc: str(doc, "llmsHomeDesc", d.llmsHomeDesc),

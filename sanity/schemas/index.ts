@@ -37,6 +37,25 @@ const siteSettings = defineType({
     str("footerPainterHandle", "Footer painter handle"),
     link("footerNav", "Footer navigation"),
     str("copyright", "Copyright line"),
+    defineField({
+      name: "gtmEnabled",
+      title: "Enable Google Tag Manager",
+      type: "boolean",
+      initialValue: false,
+      description: "Loads the GTM container on every page. Keep off until a container ID is set.",
+    }),
+    defineField({
+      name: "gtmContainerId",
+      title: "GTM container ID",
+      type: "string",
+      description: "Format GTM-XXXXXXX, from Google Tag Manager.",
+      validation: (rule) =>
+        rule.custom((v) =>
+          v === undefined || v === "" || /^GTM-[A-Z0-9]+$/i.test(v as string)
+            ? true
+            : "Must look like GTM-XXXXXXX"
+        ),
+    }),
     text("llmsSummary", "llms.txt summary"),
     str("llmsKnownAs", "llms.txt also-known-as line"),
     str("llmsHomeDesc", "llms.txt home page description"),
