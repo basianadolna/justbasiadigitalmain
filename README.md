@@ -30,7 +30,14 @@ npm run dev                        # http://localhost:3000, Studio at /studio
 | `SANITY_WRITE_TOKEN` | Only for `npm run seed` (kept out of the client bundle) |
 | `SANITY_REVALIDATE_SECRET` | Shared secret for the on-demand revalidation webhook |
 
-Without env vars the site builds and runs on the bundled fallback content.
+The real project id and dataset are the defaults, so the site and Studio work without env vars; the env vars override them. The site falls back to bundled copy only if the Sanity API is unreachable.
+
+### Google Tag Manager
+
+GTM is managed in Sanity under Site settings: `gtmEnabled` (default off) and
+`gtmContainerId` (`GTM-XXXXXXX`, validated). The container loads on every page
+only when enabled AND the ID is set; while off or empty the site ships no
+tracking code at all.
 
 ## Scripts
 

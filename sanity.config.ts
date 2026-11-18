@@ -4,7 +4,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { schemaTypes, singletonTypes } from "./sanity/schemas";
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "tbd";
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "d6drq683";
 const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET || "production";
 
 const singletonTitle: Record<string, string> = {
