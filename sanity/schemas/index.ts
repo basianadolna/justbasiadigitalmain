@@ -171,6 +171,8 @@ const service = defineType({
     str("waitlistLabel", "Waitlist link label (optional)"),
     str("waitlistSuffix", "Text after waitlist link (optional)"),
     str("waitlistSubject", "Waitlist email subject (optional)"),
+    str("ctaLabel", "Button label (optional, defaults to Book a call)"),
+    str("ctaHref", "Button link (optional, defaults to the booking page)"),
     order,
   ],
 });

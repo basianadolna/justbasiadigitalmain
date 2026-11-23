@@ -6,6 +6,8 @@ test.describe("home page", () => {
     await page.goto("/");
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Growth that");
     await expect(page.locator("#services .card")).toHaveCount(4);
+    await expect(page.locator("#services .card .card-cta")).toHaveCount(4);
+    await expect(page.locator("#services .card .card-cta").first()).toHaveAttribute("href", /calendly\.com\/basia-nadolna\/30-minute-call/);
     await expect(page.locator(".pills li")).toHaveCount(8);
     await expect(page.locator(".faq-list .qa")).toHaveCount(4);
     await expect(page.locator(".proof-card")).toHaveCount(4);

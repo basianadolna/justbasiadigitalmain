@@ -2,7 +2,7 @@
 export interface LinkItem { label: string; href: string }
 export interface CtaItem { label: string; href: string; style?: string }
 export interface SeoFields { title: string; description: string; ogTitle?: string; ogDescription?: string; ogImageAlt?: string }
-export interface ServiceItem { title: string; description: string; tags: string[]; badge: string; waitlistLabel?: string; waitlistSuffix?: string; waitlistSubject?: string; sortOrder?: number }
+export interface ServiceItem { title: string; description: string; tags: string[]; badge: string; waitlistLabel?: string; waitlistSuffix?: string; waitlistSubject?: string; ctaLabel?: string; ctaHref?: string; sortOrder?: number }
 export interface FaqItem { question: string; answer: string; linkLabel?: string; linkHref?: string; sortOrder?: number }
 export interface StepItem { num: string; title: string; text?: string; body?: string; asksTitle?: string; asksBody?: string; sortOrder?: number }
 export interface ProofStat { value: string; text: string; sortOrder?: number }
