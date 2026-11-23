@@ -10,6 +10,16 @@ const proofStyles = [
 ];
 const dotColors = ["var(--pink)", "var(--mint)", "var(--yellow)", "var(--lavender)"];
 const serviceBgs = ["var(--blush)", "var(--mint)", "var(--lavender)", "var(--yellow)"];
+// Every service card ends in one button. Default: book a call. A service with
+// a waitlist opens the waitlist email. Sanity can override label and link.
+const BOOKING_URL = "https://calendly.com/basia-nadolna/30-minute-call";
+const slugify = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+function serviceCta(s: { title: string; ctaLabel?: string; ctaHref?: string; waitlistLabel?: string; waitlistSubject?: string }, email: string) {
+  const id = slugify(s.title);
+  if (s.ctaHref) return { id, label: s.ctaLabel || "Book a call", href: s.ctaHref };
+  if (s.waitlistLabel) return { id, label: s.waitlistLabel, href: `mailto:${email}?subject=${encodeURIComponent(s.waitlistSubject || "")}` };
+  return { id, label: s.ctaLabel || "Book a call", href: `${BOOKING_URL}?utm_source=justbasiadigital&utm_medium=website&utm_content=${id}` };
+}
 const pillBgs = ["var(--blush)", "var(--mint)", "var(--yellow)", "var(--lavender)", "var(--lime)", "var(--peach)", "var(--sky)", "var(--blush)"];
 
 export default async function Home() {
@@ -202,30 +212,33 @@ export default async function Home() {
             </h2>
           </div>
           <div className="cards-2">
-            {home.services.map((s, i) => (
-              <article className="card" style={{ background: serviceBgs[i % 4] }} key={s.title}>
-                {"badge" in s && s.badge ? <span className="badge">{s.badge}</span> : null}
-                <h3>{s.title}</h3>
-                <p>
-                  {s.description}{" "}
-                  {"waitlistLabel" in s && s.waitlistLabel ? (
-                    <>
-                      <a className="inline" href={`mailto:${site.contactEmail}?subject=${encodeURIComponent("waitlistSubject" in s && s.waitlistSubject ? s.waitlistSubject : "")}`}>
-                        {s.waitlistLabel}
-                      </a>{" "}
-                      {"waitlistSuffix" in s ? s.waitlistSuffix : ""}
-                    </>
+            {home.services.map((s, i) => {
+              const cta = serviceCta(s, site.contactEmail);
+              return (
+                <article className="card" style={{ background: serviceBgs[i % 4] }} key={s.title}>
+                  {"badge" in s && s.badge ? <span className="badge">{s.badge}</span> : null}
+                  <h3>{s.title}</h3>
+                  <p>
+                    {s.description}{" "}
+                    {"waitlistLabel" in s && s.waitlistLabel ? (
+                      <>
+                        {s.waitlistLabel} {"waitlistSuffix" in s ? s.waitlistSuffix : ""}
+                      </>
+                    ) : null}
+                  </p>
+                  {s.tags && s.tags.length ? (
+                    <div className="chips">
+                      {s.tags.map((t) => (
+                        <span className="chip" key={t}>{t}</span>
+                      ))}
+                    </div>
                   ) : null}
-                </p>
-                {s.tags && s.tags.length ? (
-                  <div className="chips">
-                    {s.tags.map((t) => (
-                      <span className="chip" key={t}>{t}</span>
-                    ))}
-                  </div>
-                ) : null}
-              </article>
-            ))}
+                  <a className="btn btn-dark card-cta" href={cta.href} data-cta={`service-${cta.id}`}>
+                    {cta.label}
+                  </a>
+                </article>
+              );
+            })}
           </div>
         </div>
       </section>

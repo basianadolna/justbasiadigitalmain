@@ -106,6 +106,8 @@ p{margin:0}
 .card .chips{display:flex;gap:8px;flex-wrap:wrap;padding-top:4px}
 .badge{position:absolute;right:24px;top:-18px;cursor:default;background:var(--magenta);color:#fff;font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border-radius:999px;border:2px solid var(--ink);transform:rotate(3deg)}
 .card a.inline{color:var(--ink);font-weight:800}
+.card .card-cta{align-self:flex-start;margin-top:auto;font-size:16px;padding:13px 24px}
+.card .chips{padding-bottom:8px}
 
 /* Platforms */
 .platforms{padding:80px 0;text-align:center}
@@ -202,6 +204,7 @@ p{margin:0}
   .dot-item h3{font-size:24px}
   .cards-2{grid-template-columns:1fr;gap:24px}
   .card{padding:24px;box-shadow:4px 4px 0 var(--ink)}
+  .card .card-cta{align-self:stretch}
   .section{padding:64px 0}
   .contact{padding:72px 0}
   .contact .ctas .btn{flex:1 1 100%}
